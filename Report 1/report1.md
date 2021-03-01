@@ -1,4 +1,4 @@
-# Report 1 (March 1)
+# Week 1 Report (March 1)
 
 - TLDR: We created multiple small llvm program pairs using examples from the alive and llvm undefined paper and tested eq32 on them to see what eq32 can handle and cannot handle as of now.
 - Observations:
@@ -24,20 +24,23 @@
 - Expected Result: Programs are equivalent
 - Obtained Result: Programs are equivalent
 - The etfg files, proof, programs, etc. are available in [tests/test1](tests/test1)
+  - Program 1: [reg1.ll](tests/test1/reg1.ll), Program 2: [reg2.ll](tests/test1/reg2.ll)
+  - Proof: [eq.proof.mul](tests/test1/eq.proof.mul)
 
 ## Test 2 (Transformation from select to ashr)
 
 - Expected result: The programs are equivalent.
 - Obtained Result: This test gave an assertion error ('Assertion 0 failed') related to the z3 SMT Solver
-- The error message can be found in [tests/test2/out.log](tests/test2/out.log)
 - The programs, etfg files, etc. are available in [tests/test2 directory](tests/test2)
+  - The error message can be found in [tests/test2/out.log](tests/test2/out.log)
+  - Program 1: [reg1.ll](tests/test2/reg1.ll), Program 2: [reg2.ll](tests/test2/reg2.ll)
 
 ## Test 3 (Hoisting out an operation which triggers immediate UB)
 
-- The operation in question here is a shift left by more than the bitwidth.
-- In one of the programs, the operation was put inside a block which never executed. In the other, it was hoisted out of that branch.
 - Expected Result: Programs are inequivalent
 - Obtained Result: There was a symbolic execution error.
+- The operation in question here is a shift left by more than the bitwidth.
+- In one of the programs, the operation was put inside a block which never executed. In the other, it was hoisted out of that branch.
 
     out.log
     ```
@@ -65,8 +68,12 @@
     ```
 
 - The files related to the program pair where the operation was defined (shift amount is less than bitwidth) is in [tests/test3/defined_op](tests/test3/defined_op/)
+  - Program 1: [reg1.ll](tests/test3/defined_op/reg1.ll), Program 2: [reg2.ll](tests/test3/defined_op/reg2.ll)
+  - Error message: [out.log](tests/test3/defined_op/out_defined_op.log)
 
 - The files related to the program pair where the operation was defined (shift amount is less than bitwidth) is in [tests/test3/undefined_op](tests/test3/undefined_op/)
+  - Program 1: [reg1.ll](tests/test3/undefined_op/reg1.ll), Program 2: [reg2.ll](tests/test3/undefined_op/reg2.ll)
+  - Error message: [out.log](tests/test3/undefined_op/out_undefined_op.log)
 
 ## Test 4 (Converting x*2 to x+x)
 
@@ -97,13 +104,57 @@
 
         ```
 
-    - The bug is in how the undef variable is treated. It is considering the two undef variables to be the same which is clearly wrong because in each use of undef it generates a different value.
+  - The bug is in how the undef variable is treated. It is considering the two undef variables to be the same which is clearly wrong because in each use of undef it generates a different value.
 
-        Offending part of the tfg:
-        ```
-        1 : llvm-undef : BV:4
-        2 : bvadd(1, 1) : BV:4
-        ```
-    - This wrong interpretation/semantics is why it is considering the program to be equivalent.
+      Offending part of the tfg:
+      ```
+      1 : llvm-undef : BV:4
+      2 : bvadd(1, 1) : BV:4
+      ```
+  - This wrong interpretation/semantics is why it is considering the program to be equivalent.
 
-    - Initially, we (Anurag) thought that this bug could be fixed in lib/expr/expr.cpp but on closer inspection we (Anurag) found that this issue is a bit more complicated and we might have to look into how undef is handled during symbolic execution.
+  - Initially, we (Anurag) thought that this bug could be fixed in lib/expr/expr.cpp but on closer inspection we (Anurag) found that this issue is a bit more complicated and we might have to look into how undef is handled during symbolic execution.
+
+
+- The corresponding files, proof, etfg, programs, etc. for this test can be found in [tests/test4](tests/test4/)
+  - Program 1: [reg1.ll](tests/test4/reg1.ll), Program 2: [reg2.ll](tests/test4/reg2.ll)
+  - Proof: [eq.proof.mul](tests/test4/eq.proof.mul)
+
+## Test 5 (Effect of poison on eq32)
+
+- Expected result: No objective in mind. Just wanted to see how eq32 would handle poison. Both programs are designed to trigger immediate UB (because of getelementptr using poison in it's address variable).
+
+- Obtained result: Symbolic Execution Error.
+
+    ```
+    Stack dump:
+    0.	Program arguments: /home/adityanathan/superopt-project/usr/local/bin/llvm2tfg --xml-output-format text-color -f mul reg1.ll.bc -o reg1.ll.bc.etfg
+    Aborted (core dumped)
+    <MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+    <MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+    non-zero exit status (134) of command, exiting:
+    /home/adityanathan/superopt-project/usr/local/bin/llvm2tfg  --xml-output-format text-color -f mul reg1.ll.bc -o reg1.ll.bc.etfg
+    command: /home/adityanathan/superopt-project/usr/local/bin/llvm2tfg  --xml-output-format text-color -f mul reg1.ll.bc -o reg1.ll.bc.etfg.
+    <ERR>Symbolic execution of unoptimized LLVM IR bitcode failed. Aborting.</ERR>
+    ```
+
+
+- Corresponding files are located in [tests/test5](tests/test5/)
+  - Program 1: [reg1.ll](tests/test5/reg1.ll), Program 2: [reg2.ll](tests/test5/reg2.ll)
+  - Error message: [out.log](tests/test5/out.log)
+
+## Test 6 (One program triggers immediate UB while the other doesn't)
+
+- Expected result: Programs are not equivalent
+- Obtained result: Equivalence proof not found after exhaustive search
+
+- The immediate UB is triggered by dividing by a poison value.
+
+    ```
+    %i = add nuw i4 0, -5
+	%i2 = sdiv i4 5, %i
+    ```
+
+- Corresponding files are located in [tests/test6](tests/test6/)
+  - Program 1: [reg1.ll](tests/test6/reg1.ll), Program 2: [reg2.ll](tests/test6/reg2.ll)
+  - Output log: [out.log](tests/test6/out.log)
