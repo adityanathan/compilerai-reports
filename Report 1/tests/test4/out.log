@@ -1,0 +1,247 @@
+argv[0] = eq32
+argv[1] = -f
+argv[2] = mul
+argv[3] = reg1.ll
+argv[4] = reg2.ll
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = reg1.ll
+argv[10] = -o
+argv[11] = reg1.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = /home/adityanathan/superopt-project/mytests/tests/test4/reg2.ll
+argv[10] = -o
+argv[11] = /home/adityanathan/superopt-project/mytests/tests/test4/reg2.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+<MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:01 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:01 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:01 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:01 : Searching for equivalence at unroll factor 1</MSG>
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+<MSG>0:01 : Computing equivalence for function: mul...</MSG>
+<MSG>0:01 : Computing equivalence of the two TFGs (LLVM IR and x86 assembly)...</MSG>
+<MSG>0:01 : Chose product-TFG mul from a frontier of size 1...</MSG>
+<cg>
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+<MSG>0:01 : product-TFG mul: Enumerating correlations for L0%0%1=>E0%0%1[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc E0%0%1 as correlation candidates for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>E0%0%1[mu 1, delta 1] as correlation candidate for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc E0%0%1 as correlation candidates for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : product-TFG mul: Found 1 correlations for L0%0%1=>E0%0%1[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : product-TFG mul created 1 possibilities in group mul.A...</MSG>
+<MSG>0:01 : Chose product-TFG mul.A1 from a frontier of size 1...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>E0%0%1_E0%0%1 (C L0%0%1 => C E0%0%1 at mu 1 delta 1, A L0%0%1 => A E0%0%1 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         E0%0%1_E0%0%1 (C E0%0%1, A E0%0%1)
+                E0%0%1_E0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+<MSG>0:01 : mul.A1: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:01 : mul.A1: Chosen CG is still the most promising correlation entry; proceeding with it...</MSG>
+<MSG>0:01 : Chosen product-TFG represents our required correlation graph...</MSG>
+<MSG>0:01 : Checking equivalence proof...</MSG>
+<MSG>0:01 : Equivalence check passed: product CFG has strong enough inductive invariants...</MSG>
+Printing statistics --
+timers:
+get_paths_with_matching_to_pc.: 1e-06s (num_starts 1)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_expr_is_provable.: 3e-06s (num_starts 2)
+aliasing_constraints.convert_to_expr.: 4e-06s (num_starts 2)
+get_maximal_basic_block_edge_list_ending_at_pc.: 5e-06s (num_starts 5)
+graph_with_guessing_add_node.: 5e-06s (num_starts 2)
+identify_local_variables_in_memmask_expr.: 6e-06s (num_starts 9)
+corr_graph_add_correlation.after_add_edge.: 7e-06s (num_starts 1)
+determinize_value_expr_map.: 7e-06s (num_starts 2)
+pred_lhs_rhs_convert_memmask_to_select_for_symbols_and_locals.: 7e-06s (num_starts 9)
+get_sprel_map_pair.: 9e-06s (num_starts 5)
+set_result_and_counter_example.: 9e-06s (num_starts 2)
+proof_query_is_trivial.: 1e-05s (num_starts 9)
+expr_simplify_using_sprel_and_memlabel_maps.sprel.: 1.2e-05s (num_starts 10)
+propagate_CEs_across_new_edge.: 1.2e-05s (num_starts 1)
+removeMostPromising.: 1.3e-05s (num_starts 3)
+graph_with_paths::collect_assumes_around_path.: 1.9e-05s (num_starts 3)
+expr_has_stack_and_nonstack_memlabels_occuring_together.: 2.7e-05s (num_starts 4)
+tfg_suffixpath_get_expr_helper.: 2.8e-05s (num_starts 4)
+compute_sprel_relations.: 3e-05s (num_starts 2)
+expr_model_callee_readable_writeable_regions_in_fcalls_visitor.other.: 3.5e-05s (num_starts 18)
+expr_try_converting_unaliased_memslots_to_fresh_vars.: 3.6e-05s (num_starts 2)
+tfg::collect_assumes_around_edge.: 3.6e-05s (num_starts 2)
+dst_edge_composition_proves_false.: 3.9e-05s (num_starts 1)
+ce_reconcile_sorts.: 4.2e-05s (num_starts 3)
+expr_try_breaking_bvextracts_to_fresh_vars.: 4.4e-05s (num_starts 2)
+populate_loc_definedness.: 4.8e-05s (num_starts 2)
+propagate_sprels.: 5.5e-05s (num_starts 2)
+guarded_lhs_set_includes_nonstack_mem_equality.: 5.8e-05s (num_starts 2)
+populate_simplified_to_state.: 5.9e-05s (num_starts 2)
+populate_suffixpaths.: 6.3e-05s (num_starts 2)
+expr_simplify_using_sprel_pair_and_memlabel_maps.sprel.: 7.1e-05s (num_starts 22)
+populate_branch_affecting_locs.: 7.1e-05s (num_starts 2)
+expr_label_memlabels_using_memlabel_map_visitor.: 7.2e-05s (num_starts 66)
+populate_locid2expr_map.: 7.2e-05s (num_starts 2)
+collect_inductive_preds_around_path.: 7.6e-05s (num_starts 9)
+xfer_and_meet.: 7.6e-05s (num_starts 4)
+expr_replace_input_memvars_with_nonstack_memvar.: 8.1e-05s (num_starts 4)
+generate_aliasing_constraints_from_expr.: 8.8e-05s (num_starts 90)
+guarded_predicate_set_and.: 8.9e-05s (num_starts 2)
+expr_model_callee_readable_writeable_regions_in_fcalls_visitor.: 9.1e-05s (num_starts 66)
+graph_visit_exprs.: 9.2e-05s (num_starts 2)
+compute_loc_avail_exprs.: 9.3e-05s (num_starts 2)
+graph_edge_composition_get_to_state_using_to_state_fn.: 9.5e-05s (num_starts 4)
+get_unrolled_loop_paths_from.: 9.7e-05s (num_starts 2)
+graph_edge_composition_get_edge_cond.: 0.000114s (num_starts 12)
+expr_model_stack_as_separate_mem.: 0.000122s (num_starts 4)
+canonicalize_expr_tree.: 0.000151s (num_starts 22)
+parse_yices_model.: 0.000158s (num_starts 1)
+expr_model_callee_readable_writeable_regions_in_fcalls.: 0.000166s (num_starts 32)
+populate_loc_liveness.: 0.000167s (num_starts 2)
+get_next_dst_edge_composition_to_correlate.: 0.000169s (num_starts 2)
+corr_graph::collect_assumes_around_path.: 0.00017s (num_starts 9)
+get_aliasing_constraints_for_edge.: 0.000177s (num_starts 18)
+decide_hoare_triple.proof.: 0.000187s (num_starts 1)
+get_unrolled_paths_from.: 0.000216s (num_starts 6)
+compute_well_formedness_conditions_for_edge.: 0.000223s (num_starts 1)
+corr_graph::get_aliasing_constraints_for_edge.: 0.000249s (num_starts 9)
+parse_cvc4_model.: 0.000283s (num_starts 1)
+lhs_set_eliminate_constructs_that_the_solver_cannot_handle.: 0.000288s (num_starts 2)
+collect_aliasing_constraints_around_path_helper.: 0.000298s (num_starts 45)
+expr_simplify_syntactic().: 0.0003s (num_starts 22)
+add_corr_graph_edge.: 0.000306s (num_starts 1)
+collect_aliasing_constraints_around_path.: 0.000314s (num_starts 27)
+parse_z3_model.: 0.00032s (num_starts 1)
+prove.eliminate_constructs_that_the_solver_cannot_handle1.: 0.00032s (num_starts 2)
+graph_edge_composition_get_simplified_edge_cond.: 0.000326s (num_starts 24)
+corr_graph_add_correlation.new_node.: 0.000352s (num_starts 1)
+cg_add_node.: 0.000364s (num_starts 2)
+query:convert_to_z3.: 0.000375s (num_starts 20)
+expr_simplify_using_sprel_and_memlabel_maps.model.: 0.000415s (num_starts 10)
+expr_simplify_using_sprel_and_memlabel_maps.: 0.000478s (num_starts 10)
+compute_interesting_exprs_at_pc_helper.: 0.000634s (num_starts 2)
+corr_graph_add_correlation.after_copy_constructor.: 0.000676s (num_starts 1)
+corr_graph_add_correlation.: 0.000738s (num_starts 1)
+corr_graph_prune_and_add_correlations_to_pc.: 0.00076s (num_starts 1)
+graph_ec_apply_trans_funs_helper.0.: 0.00078s (num_starts 34)
+get_next_potential_correlations.: 0.000878s (num_starts 1)
+graph_ec_apply_trans_funs_helper.: 0.000883s (num_starts 34)
+graph_ec_apply_trans_funs_using_to_state_fn.: 0.000921s (num_starts 34)
+edge_composition_apply_trans_funs_on_pred.: 0.001069s (num_starts 9)
+query:convert_from_z3.: 0.001724s (num_starts 20)
+check_equivalence_proof.: 0.001789s (num_starts 1)
+solver_provable.: 0.002546s (num_starts 2)
+expr_is_provable.: 0.00264s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_aliasing_constraints_generation.: 0.002655s (num_starts 2)
+query:simplify_internal.: 0.002701s (num_starts 20)
+query:simplify-z3.: 0.002839s (num_starts 20)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_simplify_and_add_auxiliary_structures.: 0.003074s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_precond_is_false.: 0.003211s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_simplify.: 0.003307s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper_miss.: 0.003313s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper.syntactic_check_failed.: 0.00332s (num_starts 2)
+is_expr_equal_using_lhs_set_and_precond_helper.: 0.003333s (num_starts 2)
+populate_locs_potentially_modified_on_edge.: 0.003436s (num_starts 2)
+expr_simplify_using_sprel_pair_and_memlabel_maps.model.: 0.003603s (num_starts 22)
+prove.: 0.003718s (num_starts 4)
+prove_using_local_sprel_expr_guesses.: 0.003729s (num_starts 4)
+expr_simplify_using_sprel_pair_and_memlabel_maps.: 0.003733s (num_starts 22)
+prove_after_enumerating_local_sprel_expr_guesses.proof_query_not_trivial.: 0.003753s (num_starts 4)
+expr_label_memlabels_using_memlabel_map_visitor.simplify.: 0.003797s (num_starts 32)
+prove_after_enumerating_local_sprel_expr_guesses.: 0.003806s (num_starts 9)
+expr_simplify_using_lhs_set_helper.: 0.003853s (num_starts 18)
+populate_auxilliary_structures_dependent_on_locs.: 0.003879s (num_starts 2)
+expr_do_simplify_using_lhs_set_and_precond.: 0.003887s (num_starts 18)
+cg_check_new_cg_edge.: 0.004506s (num_starts 1)
+decide_hoare_triple.ce.: 0.005624s (num_starts 8)
+expandProductCFG.: 0.005624s (num_starts 2)
+decide_hoare_triple_helper.: 0.005787s (num_starts 9)
+bestFirstSearch.: 0.006009s (num_starts 1)
+Time taken for equivalence check.: 0.007926s (num_starts 1)
+query:smt-miss total.: 0.030425s (num_starts 2)
+query:smt.: 0.031279s (num_starts 2)
+solver_satisfiable.: 0.031287s (num_starts 3)
+
+counters:
+# of edges in Product-CFG.: 1
+# of nodes in Product-CFG.: 2
+# of paths enumerated.: 2
+# of paths expanded.: 1
+# of smt-solver-queries.: 2
+num_backtrackings.: 1
+smt-queries-cvc4-sat.: 1
+smt-queries-yices-sat.: 1
+smt-queries-z3-sat.: 1
+
+flags:
+dst-aloc.: 0
+dst-edges.: 1
+dst-nodes.: 2
+src-edges.: 1
+src-nodes.: 2
+timeout-occured.: 0
+
+info:
+eq-state.: find_correlation
+
+Found equivalence proof. Final CG:
+<cg>
+  Edges: L0%0%1_L0%0%1=>E0%0%1_E0%0%1 (C L0%0%1 => C E0%0%1 at mu 1 delta 1, A L0%0%1 => A E0%0%1 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         E0%0%1_E0%0%1 (C E0%0%1, A E0%0%1)
+                E0%0%1_E0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+EQUIV equivalence check for function mul. 0.05s, query:smt.: 0.031279s (num_starts 2), decide_hoare_triple.ce.: 0.005624s (num_starts 8), decide_hoare_triple_helper.: 0.005787s (num_starts 9)
+
+expr_simplify_solver: num_starts 22 time spent: 0:0:0 [0.003048]
+expr_simplify_syntactic: num_starts 22 time spent: 0:0:0 [0.000285]
+expr_linear_relation_holds_visit: num_starts 2 time spent: 0:0:0 [0.000039]
+expr_is_consts_struct_constant: num_starts 10 time spent: 0:0:0 [0.000006]
+graph_loc_get_value: num_starts 44 time spent: 0:0:0 [0.000145]
+manager_register_object: num_starts 78749 time spent: 0:0:0 [0.034194]
+manager_deregister_object: num_starts 287 time spent: 0:0:0 [0.000113]
+expr_do_simplify_helper: num_starts 118 time spent: 0:0:0 [0.003968]
+expr_do_simplify_helper_cache: num_starts 118 time spent: 0:0:0 [0.000028]
+expr_evaluates_to_constant: num_starts 78 time spent: 0:0:0 [0.000422]
+total: num_starts 1 time spent: 0:0:1 [1.075067]
+num_syntactic_match_tests = 0.
+num_execution_tests = 0.
+num_boolean_tests = 0.
+fingerprinting rate: 0.00 per second (total), -nan per second (itable_enumerate_timer), -nan per second (excluding execution/boolean tests).
+
+Time taken for equivalence check.: 0.007926s (num_starts 1)
+Equivalence proof found. The programs are equivalent.

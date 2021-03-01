@@ -1,0 +1,81 @@
+argv[0] = eq32
+argv[1] = -f
+argv[2] = mul
+argv[3] = reg1.ll
+argv[4] = reg2.ll
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = reg1.ll
+argv[10] = -o
+argv[11] = reg1.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = /home/adityanathan/superopt-project/mytests/tests/test2/reg2.ll
+argv[10] = -o
+argv[11] = /home/adityanathan/superopt-project/mytests/tests/test2/reg2.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+<MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:00 : Searching for equivalence at unroll factor 1</MSG>
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+tfg_llvm_t 274: all_pcs = (size 4): L0%0%1 L0%1%1 L0%2%1 E0%0%1
+<MSG>0:00 : Computing equivalence for function: mul...</MSG>
+<MSG>0:00 : Computing equivalence of the two TFGs (LLVM IR and x86 assembly)...</MSG>
+<MSG>0:00 : Chose product-TFG mul from a frontier of size 1...</MSG>
+<cg>
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+<MSG>0:00 : product-TFG mul: Enumerating correlations for L0%0%1=>E0%0%1[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:00 : Considering 1 paths to src pc E0%0%1 as correlation candidates for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:00 : Attempting correlation of src pathset L0%0%1=>E0%0%1[mu 1, delta 1] as correlation candidate for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:00 : Found 1 feasible correlations for paths to src pc E0%0%1 as correlation candidates for L0%0%1=>E0%0%1[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:00 : product-TFG mul: Found 1 correlations for L0%0%1=>E0%0%1[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:00 : product-TFG mul created 1 possibilities in group mul.A...</MSG>
+<MSG>0:00 : Chose product-TFG mul.A1 from a frontier of size 1...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>E0%0%1_E0%0%1 (C L0%0%1 => C E0%0%1 at mu 1 delta 1, A L0%0%1 => A E0%0%1 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         E0%0%1_E0%0%1 (C E0%0%1, A E0%0%1)
+                E0%0%1_E0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+../../lib/support/smt_helper_process.cpp main() 871: not-reached
+smt_helper_process: ../../lib/support/smt_helper_process.cpp:871: int main(int, char **): Assertion `0' failed.
+spawn_smt_query 320: unrecognized buffer:
+ERROR
+../../lib/expr/z3_solver.cpp spawn_smt_query() 321: not-reached
+eq32: ../../lib/expr/z3_solver.cpp:321: z3_solver::solver_res eqspace::z3_solver::spawn_smt_query(std::string, unsigned int, list<eqspace::counter_example_t> &): Assertion `0' failed.

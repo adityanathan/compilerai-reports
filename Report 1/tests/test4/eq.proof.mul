@@ -1,0 +1,915 @@
+=FunctionName: mul
+=result: 1
+=cg_with_asm_annotation
+=cg_with_backtracker
+=cg_with_rank
+=corr_graph mul.A1
+=src_tfg
+=TFG_LLVM src.llvm.mul:
+=TFG:
+=Nodes: L0%0%1 E0%0%1
+=Edges:
+L0%0%1 => E0%0%1
+=graph done
+=Input: llvm-method-arg.0
+1 : input.src.llvm-%x : BV:4
+=Node outputs: E0%0%1
+=Output: llvm-indir_tgt
+1 : retaddr_const : BV:32
+=Output: llvm-%ret-reg
+1 : input.src.llvm-%r : BV:4
+=Output: heap
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+2 : memlabel-mem-heap : MEMLABEL
+3 : memmask(1, 2) : ARRAY[BV:32 -> BV:8]
+=Node outputs done for E0%0%1
+=input_outputs done
+=Symbol-map:
+=Symbol-map done
+=Locals-map:
+=Locals-map done
+=StartState:
+=src.llvm-mem
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+=state_end
+
+=Global assumes
+=global assume predicate_set done
+=Edge: L0%0%1 => E0%0%1
+=Edge.EdgeCond: 
+1 : 1 : BOOL
+=Edge.StateTo: 
+=src.llvm-%r
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=llvm-%ret-reg
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=src.llvm-%hidden-reg
+1 : input.src.llvm-%hidden-reg : BV:32
+2 : input.src.llvm-callee-save.0 : BV:32
+3 : bvxor(1, 2) : BV:32
+4 : input.src.llvm-callee-save.1 : BV:32
+5 : bvxor(3, 4) : BV:32
+6 : input.src.llvm-callee-save.2 : BV:32
+7 : bvxor(5, 6) : BV:32
+8 : input.src.llvm-callee-save.3 : BV:32
+9 : bvxor(7, 8) : BV:32
+=src.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=Edge.Assumes.begin:
+=Edge.Assumes.end
+=Edge.te_comment
+0:-1:((start_pc_edge*  %r = mul i4 undef, 2)*  ret i4 %r)
+tfg_edge_comment end
+
+=graph_with_predicates_done
+=graph_with_simplified_assets
+=graph_with_simplified_assets.simplified_edgecond at L0%0%1=>L0%1%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%0%1=>E0%0%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%1%1=>L0%2%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%2%1=>E0%0%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond done
+=graph_with_simplified_assets.simplified_to_state at L0%0%1=>L0%1%1
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%0%1=>E0%0%1
+=src.llvm-%r
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=llvm-%ret-reg
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=src.llvm-%hidden-reg
+1 : input.src.llvm-%hidden-reg : BV:32
+2 : input.src.llvm-callee-save.0 : BV:32
+3 : input.src.llvm-callee-save.1 : BV:32
+4 : input.src.llvm-callee-save.2 : BV:32
+5 : input.src.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=src.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%1%1=>L0%2%1
+=src.llvm-%r
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%2%1=>E0%0%1
+=llvm-%ret-reg
+1 : input.src.llvm-%r : BV:4
+=src.llvm-%hidden-reg
+1 : input.src.llvm-callee-save.0 : BV:32
+2 : input.src.llvm-%hidden-reg : BV:32
+3 : input.src.llvm-callee-save.1 : BV:32
+4 : input.src.llvm-callee-save.2 : BV:32
+5 : input.src.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=src.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=graph_with_simplified_assets.simplified_to_state done
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>L0%1%1
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>L0%1%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>E0%0%1
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>E0%0%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%1%1=>L0%2%1
+=graph_with_simplified_assets.simplified_assumes at L0%1%1=>L0%2%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%2%1=>E0%0%1
+=graph_with_simplified_assets.simplified_assumes at L0%2%1=>E0%0%1 done
+=graph_with_simplified_assets.simplified_assumes done
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>L0%1%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>L0%1%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1001
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1002
+1 : input.src.llvm-%hidden-reg : BV:32
+2 : input.src.llvm-callee-save.0 : BV:32
+3 : input.src.llvm-callee-save.1 : BV:32
+4 : input.src.llvm-callee-save.2 : BV:32
+5 : input.src.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1003
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1005
+1 : retaddr_const : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1 for loc_id 1003
+1 : llvm-undef : BV:4
+2 : 2 : BV:4
+3 : bvmul(1, 2) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1001
+1 : input.src.llvm-%r : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1002
+1 : input.src.llvm-callee-save.0 : BV:32
+2 : input.src.llvm-%hidden-reg : BV:32
+3 : input.src.llvm-callee-save.1 : BV:32
+4 : input.src.llvm-callee-save.2 : BV:32
+5 : input.src.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1005
+1 : retaddr_const : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 done
+=graph_with_simplified_assets.loc_to_expr_map done
+=graph_with_simplified_assets done
+
+=Locs in src.llvm.mul
+=Loc 1001 in src.llvm.mul.
+LLVMVAR
+llvm-%ret-reg
+1 : input.llvm-%ret-reg : BV:4
+=Loc 1002 in src.llvm.mul.
+LLVMVAR
+src.llvm-%hidden-reg
+1 : input.src.llvm-%hidden-reg : BV:32
+=Loc 1003 in src.llvm.mul.
+LLVMVAR
+src.llvm-%r
+1 : input.src.llvm-%r : BV:4
+=Loc 1004 in src.llvm.mul.
+LLVMVAR
+src.llvm-%x
+1 : input.src.llvm-%x : BV:4
+=Loc 1005 in src.llvm.mul.
+LLVMVAR
+src.llvm-indir_tgt
+1 : input.src.llvm-indir_tgt : BV:32
+=Loc 1006 in src.llvm.mul.
+REGMEM
+econd
+1 : input.econd : BOOL
+=Loc 1007 in src.llvm.mul.
+MASKED
+=memname
+src.llvm-mem
+=memlabel
+memlabel-mem-heap
+=Loc 1008 in src.llvm.mul.
+MASKED
+=memname
+src.llvm-mem
+=memlabel
+memlabel-mem-esp
+=Loc 1009 in src.llvm.mul.
+MASKED
+=memname
+src.llvm-mem
+=memlabel
+memlabel-mem-arg.0
+
+=Alias analysis results in src.llvm.mul
+=Alias analysis result in src.llvm.mul at L0%0%1
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1001 (input.llvm-%ret-reg)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1002 (input.src.llvm-%hidden-reg)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1003 (input.src.llvm-%r)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1004 (input.src.llvm-%x)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1005 (input.src.llvm-indir_tgt)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1006 (input.econd)
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1007 (memmask(input.src.llvm-mem, memlabel-mem-heap))
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1008 (memmask(input.src.llvm-mem, memlabel-mem-esp))
+nullptr
+=Alias analysis result in src.llvm.mul at L0%0%1 for loc 1009 (memmask(input.src.llvm-mem, memlabel-mem-arg.0))
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1001 (input.llvm-%ret-reg)
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1002 (input.src.llvm-%hidden-reg)
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1003 (input.src.llvm-%r)
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1004 (input.src.llvm-%x)
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1005 (input.src.llvm-indir_tgt)
+lr_status
+lr_status_bottom(; memlabel-mem-heap, )
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1006 (input.econd)
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1007 (memmask(input.src.llvm-mem, memlabel-mem-heap))
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1008 (memmask(input.src.llvm-mem, memlabel-mem-esp))
+nullptr
+=Alias analysis result in src.llvm.mul at E0%0%1 for loc 1009 (memmask(input.src.llvm-mem, memlabel-mem-arg.0))
+nullptr
+
+=Liveness in src.llvm.mul
+=live locs at L0%0%1
+1007
+=live locs at E0%0%1
+1003, 1007
+
+=Available expressions in src.llvm.mul
+=available expressions at L0%0%1 in src.llvm.mul
+=avail_exprs begin
+=avail_exprs end
+=available expressions at E0%0%1 in src.llvm.mul
+=avail_exprs begin
+=loc 1005
+=from_expr
+17409 : input.src.llvm-indir_tgt : BV:32
+=to_expr
+17387 : retaddr_const : BV:32
+=avail_exprs end
+
+=sprel_maps in src.llvm.mul
+=sprel_map at L0%0%1 in src.llvm.mul
+=sprel_map at E0%0%1 in src.llvm.mul
+=loc 1005
+17387 : retaddr_const : BV:32
+=graph_with_aliasing_done
+=String-contents:
+=Nextpc-map:
+=TFGdone
+=suffixpaths for src.llvm.mul
+=suffixpath_at_L0%0%1 for src.llvm.mul
+=suffixpath_at_L0%0%1.graph_edge_composition
+(epsilon)
+=suffixpath_at_E0%0%1 for src.llvm.mul
+=suffixpath_at_E0%0%1.graph_edge_composition
+(L0%0%1=>E0%0%1)
+=suffixpaths for src.llvm.mul done
+=PC_to_linename:
+=PC_to_linename done
+=PC_to_column_name:
+=PC_to_column_name done
+=PC_to_line_and_column:
+=PC_to_line_and_column done
+=SourceToLLVMVarnames:
+=SourceToLLVMVarnames done
+=InputLLVMToSourceVarnames:
+input.src.llvm-indir_tgt : E0%0%1 : return-address
+input.llvm-%ret-reg : E0%0%1 : input.src.llvm-%r
+=InputLLVMToSourceVarnames done
+=TFG_LLVM_done
+=dst_tfg
+=TFG_LLVM dst.llvm.mul:
+=TFG:
+=Nodes: L0%0%1 E0%0%1
+=Edges:
+L0%0%1 => E0%0%1
+=graph done
+=Input: llvm-method-arg.0
+1 : input.dst.llvm-%x : BV:4
+=Node outputs: E0%0%1
+=Output: llvm-indir_tgt
+1 : retaddr_const : BV:32
+=Output: llvm-%ret-reg
+1 : input.dst.llvm-%r : BV:4
+=Output: heap
+1 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+2 : memlabel-mem-heap : MEMLABEL
+3 : memmask(1, 2) : ARRAY[BV:32 -> BV:8]
+=Node outputs done for E0%0%1
+=input_outputs done
+=Symbol-map:
+=Symbol-map done
+=Locals-map:
+=Locals-map done
+=StartState:
+=dst.llvm-mem
+1 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+=state_end
+
+=Global assumes
+=global assume predicate_set done
+=Edge: L0%0%1 => E0%0%1
+=Edge.EdgeCond: 
+1 : 1 : BOOL
+=Edge.StateTo: 
+=llvm-%ret-reg
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=dst.llvm-%hidden-reg
+1 : input.dst.llvm-%hidden-reg : BV:32
+2 : input.dst.llvm-callee-save.0 : BV:32
+3 : bvxor(1, 2) : BV:32
+4 : input.dst.llvm-callee-save.1 : BV:32
+5 : bvxor(3, 4) : BV:32
+6 : input.dst.llvm-callee-save.2 : BV:32
+7 : bvxor(5, 6) : BV:32
+8 : input.dst.llvm-callee-save.3 : BV:32
+9 : bvxor(7, 8) : BV:32
+=dst.llvm-%r
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=dst.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=Edge.Assumes.begin:
+=Edge.Assumes.end
+=Edge.te_comment
+0:-1:((start_pc_edge*  %r = add i4 undef, undef)*  ret i4 %r)
+tfg_edge_comment end
+
+=graph_with_predicates_done
+=graph_with_simplified_assets
+=graph_with_simplified_assets.simplified_edgecond at L0%0%1=>L0%1%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%0%1=>E0%0%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%1%1=>L0%2%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond at L0%2%1=>E0%0%1
+1 : 1 : BOOL
+=graph_with_simplified_assets.simplified_edgecond done
+=graph_with_simplified_assets.simplified_to_state at L0%0%1=>L0%1%1
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%0%1=>E0%0%1
+=llvm-%ret-reg
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=dst.llvm-%hidden-reg
+1 : input.dst.llvm-%hidden-reg : BV:32
+2 : input.dst.llvm-callee-save.0 : BV:32
+3 : input.dst.llvm-callee-save.1 : BV:32
+4 : input.dst.llvm-callee-save.2 : BV:32
+5 : input.dst.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=dst.llvm-%r
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=dst.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%1%1=>L0%2%1
+=dst.llvm-%r
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=state_end
+=graph_with_simplified_assets.simplified_to_state at L0%2%1=>E0%0%1
+=llvm-%ret-reg
+1 : input.dst.llvm-%r : BV:4
+=dst.llvm-%hidden-reg
+1 : input.dst.llvm-callee-save.0 : BV:32
+2 : input.dst.llvm-%hidden-reg : BV:32
+3 : input.dst.llvm-callee-save.1 : BV:32
+4 : input.dst.llvm-callee-save.2 : BV:32
+5 : input.dst.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=dst.llvm-indir_tgt
+1 : retaddr_const : BV:32
+=state_end
+=graph_with_simplified_assets.simplified_to_state done
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>L0%1%1
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>L0%1%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>E0%0%1
+=graph_with_simplified_assets.simplified_assumes at L0%0%1=>E0%0%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%1%1=>L0%2%1
+=graph_with_simplified_assets.simplified_assumes at L0%1%1=>L0%2%1 done
+=graph_with_simplified_assets.simplified_assumes at L0%2%1=>E0%0%1
+=graph_with_simplified_assets.simplified_assumes at L0%2%1=>E0%0%1 done
+=graph_with_simplified_assets.simplified_assumes done
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>L0%1%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>L0%1%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1001
+1 : input.dst.llvm-%hidden-reg : BV:32
+2 : input.dst.llvm-callee-save.0 : BV:32
+3 : input.dst.llvm-callee-save.1 : BV:32
+4 : input.dst.llvm-callee-save.2 : BV:32
+5 : input.dst.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1002
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1004
+1 : retaddr_const : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 for loc_id 1005
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%0%1=>E0%0%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1 for loc_id 1002
+1 : llvm-undef : BV:4
+2 : bvadd(1, 1) : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%1%1=>L0%2%1 done
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1001
+1 : input.dst.llvm-callee-save.0 : BV:32
+2 : input.dst.llvm-%hidden-reg : BV:32
+3 : input.dst.llvm-callee-save.1 : BV:32
+4 : input.dst.llvm-callee-save.2 : BV:32
+5 : input.dst.llvm-callee-save.3 : BV:32
+6 : bvxor(1, 2, 3, 4, 5) : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1004
+1 : retaddr_const : BV:32
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 for loc_id 1005
+1 : input.dst.llvm-%r : BV:4
+=graph_with_simplified_assets.loc_to_expr_map at L0%2%1=>E0%0%1 done
+=graph_with_simplified_assets.loc_to_expr_map done
+=graph_with_simplified_assets done
+
+=Locs in dst.llvm.mul
+=Loc 1001 in dst.llvm.mul.
+LLVMVAR
+dst.llvm-%hidden-reg
+1 : input.dst.llvm-%hidden-reg : BV:32
+=Loc 1002 in dst.llvm.mul.
+LLVMVAR
+dst.llvm-%r
+1 : input.dst.llvm-%r : BV:4
+=Loc 1003 in dst.llvm.mul.
+LLVMVAR
+dst.llvm-%x
+1 : input.dst.llvm-%x : BV:4
+=Loc 1004 in dst.llvm.mul.
+LLVMVAR
+dst.llvm-indir_tgt
+1 : input.dst.llvm-indir_tgt : BV:32
+=Loc 1005 in dst.llvm.mul.
+LLVMVAR
+llvm-%ret-reg
+1 : input.llvm-%ret-reg : BV:4
+=Loc 1006 in dst.llvm.mul.
+REGMEM
+econd
+1 : input.econd : BOOL
+=Loc 1007 in dst.llvm.mul.
+MASKED
+=memname
+dst.llvm-mem
+=memlabel
+memlabel-mem-heap
+=Loc 1008 in dst.llvm.mul.
+MASKED
+=memname
+dst.llvm-mem
+=memlabel
+memlabel-mem-esp
+=Loc 1009 in dst.llvm.mul.
+MASKED
+=memname
+dst.llvm-mem
+=memlabel
+memlabel-mem-arg.0
+
+=Alias analysis results in dst.llvm.mul
+=Alias analysis result in dst.llvm.mul at L0%0%1
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1001 (input.dst.llvm-%hidden-reg)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1002 (input.dst.llvm-%r)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1003 (input.dst.llvm-%x)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1004 (input.dst.llvm-indir_tgt)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1005 (input.llvm-%ret-reg)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1006 (input.econd)
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1007 (memmask(input.dst.llvm-mem, memlabel-mem-heap))
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1008 (memmask(input.dst.llvm-mem, memlabel-mem-esp))
+nullptr
+=Alias analysis result in dst.llvm.mul at L0%0%1 for loc 1009 (memmask(input.dst.llvm-mem, memlabel-mem-arg.0))
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1001 (input.dst.llvm-%hidden-reg)
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1002 (input.dst.llvm-%r)
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1003 (input.dst.llvm-%x)
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1004 (input.dst.llvm-indir_tgt)
+lr_status
+lr_status_bottom(; memlabel-mem-heap, )
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1005 (input.llvm-%ret-reg)
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1006 (input.econd)
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1007 (memmask(input.dst.llvm-mem, memlabel-mem-heap))
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1008 (memmask(input.dst.llvm-mem, memlabel-mem-esp))
+nullptr
+=Alias analysis result in dst.llvm.mul at E0%0%1 for loc 1009 (memmask(input.dst.llvm-mem, memlabel-mem-arg.0))
+nullptr
+
+=Liveness in dst.llvm.mul
+=live locs at L0%0%1
+1007
+=live locs at E0%0%1
+1002, 1007
+
+=Available expressions in dst.llvm.mul
+
+=sprel_maps in dst.llvm.mul
+=sprel_map at L0%0%1 in dst.llvm.mul
+=sprel_map at E0%0%1 in dst.llvm.mul
+=loc 1004
+17387 : retaddr_const : BV:32
+=graph_with_aliasing_done
+=String-contents:
+=Nextpc-map:
+=TFGdone
+=suffixpaths for dst.llvm.mul
+=suffixpath_at_L0%0%1 for dst.llvm.mul
+=suffixpath_at_L0%0%1.graph_edge_composition
+(epsilon)
+=suffixpath_at_E0%0%1 for dst.llvm.mul
+=suffixpath_at_E0%0%1.graph_edge_composition
+(L0%0%1=>E0%0%1)
+=suffixpaths for dst.llvm.mul done
+=PC_to_linename:
+=PC_to_linename done
+=PC_to_column_name:
+=PC_to_column_name done
+=PC_to_line_and_column:
+=PC_to_line_and_column done
+=SourceToLLVMVarnames:
+=SourceToLLVMVarnames done
+=InputLLVMToSourceVarnames:
+input.dst.llvm-indir_tgt : E0%0%1 : return-address
+=InputLLVMToSourceVarnames done
+=TFG_LLVM_done
+=eqcheck_info
+=eqcheck
+=proof_filename eq.proof.mul
+=function_name mul
+=fixed_reg_mappings begin
+0 : 0 : 0
+0 : 4 : 4
+=fixed_reg_mappings end
+=rodata_map begin
+=rodata_map end
+=dst_iseq
+=dst_iseq done
+=dst_insn_pcs
+=dst_insn_pcs done
+=asm_filename NONE
+=Memlabel assertions
+=Symbol-map:
+=Symbol-map done
+=Locals-map:
+=Locals-map done
+=graph_arg_regs
+=graph_arg_reg llvm-method-arg.0
+1 : input.src.llvm-%x : BV:4
+=graph_arg_regs done
+=rodata_map begin
+=rodata_map end
+=assertion
+1 : memlabel-mem-esp_begin : BV:32
+2 : memlabel-mem-esp_end : BV:32
+3 : bvule(1, 2) : BOOL
+4 : stack.size : BV:32
+5 : 4294967295 { -1 } : BV:32
+6 : bvadd(4, 5) : BV:32
+7 : bvadd(1, 6) : BV:32
+8 : eq(2, 7) : BOOL
+9 : and(3, 8) : BOOL
+10 : 0 : BV:32
+11 : bvugt(4, 10) : BOOL
+12 : and(9, 11) : BOOL
+13 : input_stack_pointer_const : BV:32
+14 : bvule(1, 13) : BOOL
+15 : bvule(13, 2) : BOOL
+16 : and(14, 15) : BOOL
+17 : 7 : BV:32
+18 : bvadd(13, 17) : BV:32
+19 : eq(18, 2) : BOOL
+20 : and(16, 19) : BOOL
+21 : and(12, 20) : BOOL
+22 : 4294963200 { -4096 } : BV:32
+23 : bvand(1, 22) : BV:32
+24 : eq(23, 1) : BOOL
+25 : 1 : BV:32
+26 : bvadd(2, 25) : BV:32
+27 : bvand(26, 22) : BV:32
+28 : eq(27, 26) : BOOL
+29 : and(24, 28) : BOOL
+30 : and(21, 29) : BOOL
+=concrete_assertion
+1 : input_stack_pointer_const : BV:32
+2 : 4294967288 { -8 } : BV:32
+3 : eq(1, 2) : BOOL
+4 : memlabel-mem-esp_begin : BV:32
+5 : 4096 : BV:32
+6 : eq(4, 5) : BOOL
+7 : and(3, 6) : BOOL
+8 : memlabel-mem-esp_end : BV:32
+9 : 4294967295 { -1 } : BV:32
+10 : eq(8, 9) : BOOL
+11 : and(7, 10) : BOOL
+12 : stack.size : BV:32
+13 : 4294963200 { -4096 } : BV:32
+14 : eq(12, 13) : BOOL
+15 : and(11, 14) : BOOL
+=use_concrete_assertion : 1
+=Memlabel assertions done
+=xml_output_format text-color
+=eqcheck done
+=graph_with_guessing
+=Nodes: L0%0%1_L0%0%1 E0%0%1_E0%0%1
+=Edges:
+L0%0%1_L0%0%1 => E0%0%1_E0%0%1
+=graph done
+=Input: llvm-method-arg.0
+1 : input.src.llvm-%x : BV:4
+=Node outputs: E0%0%1_E0%0%1
+=Node outputs done for E0%0%1_E0%0%1
+=input_outputs done
+=Symbol-map:
+=Symbol-map done
+=Locals-map:
+=Locals-map done
+=StartState:
+=dst.llvm-mem
+1 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+=src.llvm-mem
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+=state_end
+
+=Global assumes
+=global assume predicate_set done
+=Edge: L0%0%1_L0%0%1 => E0%0%1_E0%0%1
+=Edge.src_tfg_full_pathset
+=Edge.src_tfg_full_pathset.ec from L0%0%1 to E0%0%1 at unroll 1 delta 1
+=Edge.src_tfg_full_pathset.graph_edge_composition
+(L0%0%1=>E0%0%1)
+=Edge.src_tfg_full_pathset done
+=Edge.dst_tfg_full_pathset
+=Edge.dst_tfg_full_pathset.ec from L0%0%1 to E0%0%1 at unroll 1 delta 1
+=Edge.dst_tfg_full_pathset.graph_edge_composition
+(L0%0%1=>E0%0%1)
+=Edge.dst_tfg_full_pathset done
+
+=graph_with_predicates_done
+=graph_with_simplified_assets
+=graph_with_simplified_assets.simplified_edgecond done
+=graph_with_simplified_assets.simplified_to_state done
+=graph_with_simplified_assets.simplified_assumes done
+=graph_with_simplified_assets.loc_to_expr_map done
+=graph_with_simplified_assets done
+
+=Locs in mul.A1
+
+=Alias analysis results in mul.A1
+=Alias analysis result in mul.A1 at L0%0%1_L0%0%1
+=Alias analysis result in mul.A1 at E0%0%1_E0%0%1
+
+=Liveness in mul.A1
+=live locs at L0%0%1_L0%0%1
+
+=live locs at E0%0%1_E0%0%1
+
+
+=Available expressions in mul.A1
+
+=sprel_maps in mul.A1
+=sprel_map at L0%0%1_L0%0%1 in mul.A1
+=sprel_map at E0%0%1_E0%0%1 in mul.A1
+=graph_with_aliasing_done
+=Memlabel assertions
+=Symbol-map:
+=Symbol-map done
+=Locals-map:
+=Locals-map done
+=graph_arg_regs
+=graph_arg_reg llvm-method-arg.0
+1 : input.src.llvm-%x : BV:4
+=graph_arg_regs done
+=rodata_map begin
+=rodata_map end
+=assertion
+1 : memlabel-mem-esp_begin : BV:32
+2 : memlabel-mem-esp_end : BV:32
+3 : bvule(1, 2) : BOOL
+4 : stack.size : BV:32
+5 : 4294967295 { -1 } : BV:32
+6 : bvadd(4, 5) : BV:32
+7 : bvadd(1, 6) : BV:32
+8 : eq(2, 7) : BOOL
+9 : and(3, 8) : BOOL
+10 : 0 : BV:32
+11 : bvugt(4, 10) : BOOL
+12 : and(9, 11) : BOOL
+13 : input_stack_pointer_const : BV:32
+14 : bvule(1, 13) : BOOL
+15 : bvule(13, 2) : BOOL
+16 : and(14, 15) : BOOL
+17 : 7 : BV:32
+18 : bvadd(13, 17) : BV:32
+19 : eq(18, 2) : BOOL
+20 : and(16, 19) : BOOL
+21 : and(12, 20) : BOOL
+22 : 4294963200 { -4096 } : BV:32
+23 : bvand(1, 22) : BV:32
+24 : eq(23, 1) : BOOL
+25 : 1 : BV:32
+26 : bvadd(2, 25) : BV:32
+27 : bvand(26, 22) : BV:32
+28 : eq(27, 26) : BOOL
+29 : and(24, 28) : BOOL
+30 : and(21, 29) : BOOL
+=concrete_assertion
+1 : input_stack_pointer_const : BV:32
+2 : 4294967288 { -8 } : BV:32
+3 : eq(1, 2) : BOOL
+4 : memlabel-mem-esp_begin : BV:32
+5 : 4096 : BV:32
+6 : eq(4, 5) : BOOL
+7 : and(3, 6) : BOOL
+8 : memlabel-mem-esp_end : BV:32
+9 : 4294967295 { -1 } : BV:32
+10 : eq(8, 9) : BOOL
+11 : and(7, 10) : BOOL
+12 : stack.size : BV:32
+13 : 4294963200 { -4096 } : BV:32
+14 : eq(12, 13) : BOOL
+15 : and(11, 14) : BOOL
+=use_concrete_assertion : 1
+=Memlabel assertions done
+=graph_with_ce done
+=graph_with_guessing begin
+=Invariant states
+=Invariant state at node L0%0%1_L0%0%1:
+=pc L0%0%1_L0%0%1 invariant_state
+is_top 0
+is_stable 1
+=pc L0%0%1_L0%0%1 invariant_state done
+=Invariant state at node E0%0%1_E0%0%1:
+=pc E0%0%1_E0%0%1 invariant_state
+is_top 0
+is_stable 1
+=pc E0%0%1_E0%0%1 invariant_state done
+=graph_with_guessing done
+=graph_with_correctness_covers begin
+=Correctness covers
+=graph_with_correctness_covers done
+=start_pc_preconditions
+=start_pc_precondition.0
+=Comment
+precond-memmask-memlabel-mem-heap
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+2 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+3 : memlabel-mem-heap : MEMLABEL
+4 : memmasks_are_equal(1, 2, 3) : BOOL
+=RhsExpr
+1 : 1 : BOOL
+=predicate done
+=start_pc_precondition.1
+=Comment
+precond-0x4af5cb0
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-%x : BV:4
+=RhsExpr
+1 : input.dst.llvm-%x : BV:4
+=predicate done
+=exit_pc_asserts at E0%0%1_E0%0%1
+=exit_pc_assert.0 at E0%0%1_E0%0%1
+=Comment
+precond-memmask-memlabel-mem-heap
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+2 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+3 : memlabel-mem-heap : MEMLABEL
+4 : memmasks_are_equal(1, 2, 3) : BOOL
+=RhsExpr
+1 : 1 : BOOL
+=predicate done
+=exit_pc_assert.0 at E0%0%1_E0%0%1
+=Comment
+exit.llvm-%ret-reg
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-%r : BV:4
+=RhsExpr
+1 : input.dst.llvm-%r : BV:4
+=predicate done
+=exit_pc_assert.0 at E0%0%1_E0%0%1
+=Comment
+exit.llvm-indir_tgt
+=LocalSprelAssumptions:
+=LhsExpr
+1 : retaddr_const : BV:32
+=RhsExpr
+1 : retaddr_const : BV:32
+=predicate done
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 edge well-formedness condition
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 src_path
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 src_path.graph_edge_composition
+(epsilon)
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 dst_path
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 dst_path.graph_edge_composition
+(epsilon)
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 pred.0
+=Comment
+compute_well_formedness_conditions_for_edge for L0%0%1_L0%0%1=>E0%0%1_E0%0%1[ src: (L0%0%1=>E0%0%1); dst: (L0%0%1=>E0%0%1)]
+=LocalSprelAssumptions:
+=LhsExpr
+1 : 1 : BOOL
+=RhsExpr
+1 : 1 : BOOL
+=predicate done
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 src_path
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 src_path.graph_edge_composition
+(epsilon)
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 dst_path
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 dst_path.graph_edge_composition
+(epsilon)
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 pred.0
+=Comment
+exit.llvm-indir_tgt
+=LocalSprelAssumptions:
+=LhsExpr
+1 : retaddr_const : BV:32
+=RhsExpr
+1 : retaddr_const : BV:32
+=predicate done
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 pred.0
+=Comment
+exit.llvm-%ret-reg
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-%r : BV:4
+=RhsExpr
+1 : input.dst.llvm-%r : BV:4
+=predicate done
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 fromto L0%0%1_L0%0%1=>L0%0%1_L0%0%1 pred.0
+=Comment
+precond-memmask-memlabel-mem-heap
+=LocalSprelAssumptions:
+=LhsExpr
+1 : input.src.llvm-mem : ARRAY[BV:32 -> BV:8]
+2 : input.dst.llvm-mem : ARRAY[BV:32 -> BV:8]
+3 : memlabel-mem-heap : MEMLABEL
+4 : memmasks_are_equal(1, 2, 3) : BOOL
+=RhsExpr
+1 : 1 : BOOL
+=predicate done
+=well-formedness-conditions for L0%0%1_L0%0%1=>E0%0%1_E0%0%1 edge well-formedness condition done
+=corr_graph_done
+=bv_rank_map
+=cg_with_rank done
+=cg_with_backtracker done
+=asm filename
+
+=cg_with_asm_annotation done

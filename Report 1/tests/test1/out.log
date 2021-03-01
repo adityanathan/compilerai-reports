@@ -1,0 +1,575 @@
+argv[0] = eq32
+argv[1] = -f
+argv[2] = mul
+argv[3] = reg1.ll
+argv[4] = reg2.ll
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = reg1.ll
+argv[10] = -o
+argv[11] = reg1.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+argv[0] = /home/adityanathan/superopt-project/usr/local/bin/clang
+argv[1] = -Xclang
+argv[2] = -disable-llvm-passes
+argv[3] = -Xclang
+argv[4] = -disable-O0-optnone
+argv[5] = -c
+argv[6] = -g
+argv[7] = -emit-llvm
+argv[8] = -O0
+argv[9] = /home/adityanathan/superopt-project/mytests/tests/test1/reg2.ll
+argv[10] = -o
+argv[11] = /home/adityanathan/superopt-project/mytests/tests/test1/reg2.ll.bc.tmp
+argv[12] = -m32
+
+warning: overriding the module target triple with i386-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+tfg_llvm_t 274: all_pcs = (size 27): L0%0%1 Linit%1%1 Linit%1%100003 Linit%1%100004 Linit%1%100005 Linit%1%100006 Lhead%1%0 Lhead%1%1 Lhead%2%1 Lhead%2%100003 Lhead%2%100004 Lhead%2%100005 Lhead%2%100006 Lbody%1%1 Lbody%2%1 Lbody%2%100003 Lbody%2%100004 Lbody%3%1 Lbody%4%1 Lbody%5%1 Lbody%6%1 Lbody%6%100003 Lbody%6%100004 Lbody%6%100005 Lbody%6%100006 Lexit%1%1 E0%0%1
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG) for function mul</MSG>
+<MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:00 : Converting C source code to LLVM IR bitcode...</MSG>
+<MSG>0:01 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
+<MSG>0:01 : Searching for equivalence at unroll factor 1</MSG>
+tfg_llvm_t 274: all_pcs = (size 27): L0%0%1 Linit%1%1 Linit%1%100003 Linit%1%100004 Linit%1%100005 Linit%1%100006 Lhead%1%0 Lhead%1%1 Lhead%2%1 Lhead%2%100003 Lhead%2%100004 Lhead%2%100005 Lhead%2%100006 Lbody%1%1 Lbody%2%1 Lbody%2%100003 Lbody%2%100004 Lbody%3%1 Lbody%4%1 Lbody%5%1 Lbody%6%1 Lbody%6%100003 Lbody%6%100004 Lbody%6%100005 Lbody%6%100006 Lexit%1%1 E0%0%1
+tfg_llvm_t 274: all_pcs = (size 27): L0%0%1 Linit%1%1 Linit%2%1 Linit%2%100003 Linit%2%100004 Linit%2%100005 Linit%2%100006 Lhead%1%0 Lhead%1%1 Lhead%2%1 Lhead%2%100003 Lhead%2%100004 Lhead%2%100005 Lhead%2%100006 Lbody%1%1 Lbody%1%100003 Lbody%1%100004 Lbody%2%1 Lbody%3%1 Lbody%4%1 Lbody%5%1 Lbody%5%100003 Lbody%5%100004 Lbody%5%100005 Lbody%5%100006 Lexit%1%1 E0%0%1
+<MSG>0:01 : Computing equivalence for function: mul...</MSG>
+<MSG>0:01 : Computing equivalence of the two TFGs (LLVM IR and x86 assembly)...</MSG>
+<MSG>0:01 : Chose product-TFG mul from a frontier of size 1...</MSG>
+<cg>
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+<MSG>0:01 : product-TFG mul: Enumerating correlations for L0%0%1=>Lhead%1%0[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc L0%0%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>L0%0%1[mu 0, delta 0] as correlation candidate for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc L0%0%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lhead%1%0 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lhead%1%0[mu 1, delta 1] as correlation candidate for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc Lhead%1%0 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lhead%2%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lhead%2%1[mu 1, delta 1] as correlation candidate for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc Lhead%2%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lbody%1%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lbody%1%1[mu 1, delta 1] as correlation candidate for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc Lbody%1%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lexit%1%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lexit%1%1[mu 1, delta 1] as correlation candidate for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : Found 1 feasible correlations for paths to src pc Lexit%1%1 as correlation candidates for L0%0%1=>Lhead%1%0[mu 1, delta 1] at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : product-TFG mul: Found 5 correlations for L0%0%1=>Lhead%1%0[mu 1, delta 1] starting at L0%0%1_L0%0%1
+</MSG>
+<MSG>0:01 : product-TFG mul created 5 possibilities in group mul.A...</MSG>
+<MSG>0:01 : Chose product-TFG mul.A1 from a frontier of size 5...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>L0%0%1_Lhead%1%0 (C L0%0%1 => C L0%0%1 at mu 0 delta 0, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         L0%0%1_Lhead%1%0 (C L0%0%1, A Lhead%1%0)
+                L0%0%1_Lhead%1%0 contains 0 counterexamples (for correlating 9 bv exprs)
+                false
+
+</cg>
+<MSG>0:01 : mul.A1: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:01 : mul.A1: Chosen CG is still the most promising correlation entry; proceeding with it...</MSG>
+<MSG>0:01 : product-TFG mul.A1: Enumerating correlations for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] starting at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lhead%1%0 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lhead%1%0[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Failed correlation of src pathset L0%0%1=>Lhead%1%0[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:01 : Found 0 feasible correlations for paths to src pc Lhead%1%0 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lhead%2%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lhead%2%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Failed correlation of src pathset L0%0%1=>Lhead%2%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:01 : Found 0 feasible correlations for paths to src pc Lhead%2%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lbody%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lbody%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Failed correlation of src pathset L0%0%1=>Lbody%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:01 : Found 0 feasible correlations for paths to src pc Lbody%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Considering 1 paths to src pc Lexit%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Attempting correlation of src pathset L0%0%1=>Lexit%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : Failed correlation of src pathset L0%0%1=>Lexit%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0: failcond = compute_well_formedness_conditions_for_edge for L0%0%1_Lhead%1%0=>Lexit%1%1_Lhead%1%0[ src: ((L0%0%1=>Lhead%1%0)*((Lhead%1%0=>Lhead%2%1)*(Lhead%2%1=>Lexit%1%1))); dst: ((Lhead%1%0=>Lhead%2%1)*((Lhead%2%1=>Lbody%1%1)*(Lbody%1%1=>Lhead%1%0)))]
+</MSG>
+<MSG>0:01 : Found 0 feasible correlations for paths to src pc Lexit%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : product-TFG mul.A1: Found 0 correlations for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] starting at L0%0%1_Lhead%1%0
+</MSG>
+<MSG>0:01 : product-TFG mul.A1 was not fruitful.
+</MSG>
+<MSG>0:01 : Chose product-TFG mul.A4 from a frontier of size 4...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lbody%1%1_Lhead%1%0 (C L0%0%1 => C Lbody%1%1 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lbody%1%1_Lhead%1%0 (C Lbody%1%1, A Lhead%1%0)
+                Lbody%1%1_Lhead%1%0 contains 0 counterexamples (for correlating 13 bv exprs)
+                false
+
+</cg>
+correl_entry_apply 1036: correl entry cg edge not well formed for mul.A4
+cg =
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lbody%1%1_Lhead%1%0 (C L0%0%1 => C Lbody%1%1 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lbody%1%1_Lhead%1%0 (C Lbody%1%1, A Lhead%1%0)
+                Lbody%1%1_Lhead%1%0 contains 0 counterexamples (for correlating 13 bv exprs)
+                false
+
+</cg>
+Edge correlation criteria failed for L0%0%1_L0%0%1=>Lbody%1%1_Lhead%1%0
+<MSG>0:01 : Chosen product-TFG failed the edge correlation criterion...</MSG>
+<MSG>0:01 : Chose product-TFG mul.A5 from a frontier of size 3...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lexit%1%1_Lhead%1%0 (C L0%0%1 => C Lexit%1%1 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lexit%1%1_Lhead%1%0 (C Lexit%1%1, A Lhead%1%0)
+                Lexit%1%1_Lhead%1%0 contains 0 counterexamples (for correlating 9 bv exprs)
+                false
+
+</cg>
+correl_entry_apply 1036: correl entry cg edge not well formed for mul.A5
+cg =
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lexit%1%1_Lhead%1%0 (C L0%0%1 => C Lexit%1%1 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lexit%1%1_Lhead%1%0 (C Lexit%1%1, A Lhead%1%0)
+                Lexit%1%1_Lhead%1%0 contains 0 counterexamples (for correlating 9 bv exprs)
+                false
+
+</cg>
+Edge correlation criteria failed for L0%0%1_L0%0%1=>Lexit%1%1_Lhead%1%0
+<MSG>0:01 : Chosen product-TFG failed the edge correlation criterion...</MSG>
+<MSG>0:01 : Chose product-TFG mul.A3 from a frontier of size 2...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lhead%2%1_Lhead%1%0 (C L0%0%1 => C Lhead%2%1 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lhead%2%1_Lhead%1%0 (C Lhead%2%1, A Lhead%1%0)
+                Lhead%2%1_Lhead%1%0 contains 0 counterexamples (for correlating 13 bv exprs)
+                false
+
+</cg>
+<MSG>0:01 : mul.A3: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:01 : mul.A3: Chosen CG is no longer the most promising correlation entry; returning delayed-exploration...</MSG>
+<MSG>0:01 : Chosen product-TFG will be explored later...</MSG>
+<MSG>0:01 : Decided to explore product-TFG later after re-evaluating its best-first-search rank...</MSG>
+<MSG>0:01 : Chose product-TFG mul.A2 from a frontier of size 2...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lhead%1%0_Lhead%1%0 (C L0%0%1 => C Lhead%1%0 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+         Lhead%1%0_Lhead%1%0 (C Lhead%1%0, A Lhead%1%0)
+                Lhead%1%0_Lhead%1%0 contains 0 counterexamples (for correlating 12 bv exprs)
+                false
+
+</cg>
+<MSG>0:02 : mul.A2: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:02 : mul.A2: Chosen CG is still the most promising correlation entry; proceeding with it...</MSG>
+<MSG>0:02 : product-TFG mul.A2: Enumerating correlations for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] starting at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Considering 2 paths to src pc Lhead%1%0 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Attempting correlation of src pathset Lhead%1%0=>Lhead%1%0[mu 1, delta 0] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Failed correlation of src pathset Lhead%1%0=>Lhead%1%0[mu 1, delta 0] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:02 : Attempting correlation of src pathset Lhead%1%0=>Lhead%1%0[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Found 1 feasible correlations for paths to src pc Lhead%1%0 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Considering 1 paths to src pc Lhead%2%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Attempting correlation of src pathset Lhead%1%0=>Lhead%2%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Failed correlation of src pathset Lhead%1%0=>Lhead%2%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:02 : Found 0 feasible correlations for paths to src pc Lhead%2%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Considering 1 paths to src pc Lbody%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Attempting correlation of src pathset Lhead%1%0=>Lbody%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Failed correlation of src pathset Lhead%1%0=>Lbody%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0: failcond = invariant_state_instability
+</MSG>
+<MSG>0:02 : Found 0 feasible correlations for paths to src pc Lbody%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Considering 1 paths to src pc Lexit%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Attempting correlation of src pathset Lhead%1%0=>Lexit%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : Failed correlation of src pathset Lhead%1%0=>Lexit%1%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0: failcond = compute_well_formedness_conditions_for_edge for Lhead%1%0_Lhead%1%0=>Lexit%1%1_Lhead%1%0[ src: ((Lhead%1%0=>Lhead%2%1)*(Lhead%2%1=>Lexit%1%1)); dst: ((Lhead%1%0=>Lhead%2%1)*((Lhead%2%1=>Lbody%1%1)*(Lbody%1%1=>Lhead%1%0)))]
+</MSG>
+<MSG>0:02 : Found 0 feasible correlations for paths to src pc Lexit%1%1 as correlation candidates for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : product-TFG mul.A2: Found 1 correlations for Lhead%1%0=>Lhead%1%0[mu 1, delta 1] starting at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:02 : product-TFG mul.A2 created 1 possibilities in group mul.A2.B...</MSG>
+<MSG>0:02 : Chose product-TFG mul.A2.B1 from a frontier of size 2...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lhead%1%0_Lhead%1%0 (C L0%0%1 => C Lhead%1%0 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+         Lhead%1%0_Lhead%1%0=>Lhead%1%0_Lhead%1%0 (C Lhead%1%0 => C Lhead%1%0 at mu 1 delta 1, A Lhead%1%0 => A Lhead%1%0 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 30 counterexamples (for correlating 0 bv exprs)
+         Lhead%1%0_Lhead%1%0 (C Lhead%1%0, A Lhead%1%0)
+                Lhead%1%0_Lhead%1%0 contains 20 counterexamples (for correlating 12 bv exprs)
+                SRCMEM{heap} = DSTMEM{heap}
+                input.src.llvm-%x = input.dst.llvm-%x
+                input.src.llvm-%y = input.dst.llvm-%y
+                input.src.llvm-%z = input.dst.llvm-%z
+                0 = 0
+                (input.src.llvm-%x + 1) = (1 + input.dst.llvm-%x)
+                (0 >=_s 0)
+                (0 <=_s 4)
+                (0 <= 4)
+                (0 <= 4)
+                (0 >=_s 0)
+                (0 <= input.dst.llvm-%y)
+                (0 <=_s 4)
+
+</cg>
+<MSG>0:03 : mul.A2.B1: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:03 : mul.A2.B1: Chosen CG is still the most promising correlation entry; proceeding with it...</MSG>
+<MSG>0:03 : product-TFG mul.A2.B1: Enumerating correlations for Lhead%1%0=>E0%0%1[mu 1, delta 1] starting at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:03 : Considering 1 paths to src pc E0%0%1 as correlation candidates for Lhead%1%0=>E0%0%1[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:03 : Attempting correlation of src pathset Lhead%1%0=>E0%0%1[mu 1, delta 1] as correlation candidate for Lhead%1%0=>E0%0%1[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:03 : Found 1 feasible correlations for paths to src pc E0%0%1 as correlation candidates for Lhead%1%0=>E0%0%1[mu 1, delta 1] at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:03 : product-TFG mul.A2.B1: Found 1 correlations for Lhead%1%0=>E0%0%1[mu 1, delta 1] starting at Lhead%1%0_Lhead%1%0
+</MSG>
+<MSG>0:03 : product-TFG mul.A2.B1 created 1 possibilities in group mul.A2.B1.C...</MSG>
+<MSG>0:03 : Chose product-TFG mul.A2.B1.C1 from a frontier of size 2...</MSG>
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lhead%1%0_Lhead%1%0 (C L0%0%1 => C Lhead%1%0 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+         Lhead%1%0_Lhead%1%0=>Lhead%1%0_Lhead%1%0 (C Lhead%1%0 => C Lhead%1%0 at mu 1 delta 1, A Lhead%1%0 => A Lhead%1%0 at mu 1 delta 1)
+         Lhead%1%0_Lhead%1%0=>E0%0%1_E0%0%1 (C Lhead%1%0 => C E0%0%1 at mu 1 delta 1, A Lhead%1%0 => A E0%0%1 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 30 counterexamples (for correlating 0 bv exprs)
+         Lhead%1%0_Lhead%1%0 (C Lhead%1%0, A Lhead%1%0)
+                Lhead%1%0_Lhead%1%0 contains 49 counterexamples (for correlating 12 bv exprs)
+                SRCMEM{heap} = DSTMEM{heap}
+                input.src.llvm-%x = input.dst.llvm-%x
+                input.src.llvm-%y = input.dst.llvm-%y
+                input.src.llvm-%z = input.dst.llvm-%z
+                0 = 0
+                (input.src.llvm-%x + 1) = (1 + input.dst.llvm-%x)
+                (0 >=_s 0)
+                (0 <= (-2147483648))
+                (0 <= (-2147483648))
+                (0 >=_s 0)
+                (0 <= input.dst.llvm-%y)
+         E0%0%1_E0%0%1 (C E0%0%1, A E0%0%1)
+                E0%0%1_E0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+<MSG>0:03 : mul.A2.B1.C1: checked newly added edge and inferred invariants...</MSG>
+<MSG>0:03 : mul.A2.B1.C1: Chosen CG is still the most promising correlation entry; proceeding with it...</MSG>
+<MSG>0:03 : Chosen product-TFG represents our required correlation graph...</MSG>
+<MSG>0:03 : Checking equivalence proof...</MSG>
+<MSG>0:03 : Equivalence check passed: product CFG has strong enough inductive invariants...</MSG>
+Printing statistics --
+timers:
+select_llvmvars_correlated_at_pred_and_add_to_dst.: 8e-06s (num_starts 12)
+select_llvmvars_modified_on_incoming_edge_and_add_to_dst.: 8e-06s (num_starts 12)
+select_llvmvars_having_sprel_mappings.: 9e-06s (num_starts 12)
+determinize_value_expr_map.: 1.2e-05s (num_starts 12)
+get_paths_with_matching_to_pc.: 1.6e-05s (num_starts 14)
+select_non_llvmvars_from_src_and_add_to_dst.: 3.4e-05s (num_starts 12)
+src_tfg_counter_example_translate_on_edge_composition.delta0.: 3.9e-05s (num_starts 25)
+compute_sprel_relations.: 4.1e-05s (num_starts 2)
+get_maximal_basic_block_edge_list_ending_at_pc.: 4.1e-05s (num_starts 45)
+select_llvmvars_appearing_in_avail_exprs_at_pc.: 4.1e-05s (num_starts 12)
+expr_simplify_using_sprel_and_memlabel_maps.sprel.: 4.2e-05s (num_starts 196)
+expr_label_memlabels_using_memlabel_map_visitor.memaccess.: 4.6e-05s (num_starts 16)
+prove_using_local_sprel_expr_guesses.enumerate_lsprels.: 4.7e-05s (num_starts 65)
+corr_graph_add_correlation.after_add_edge.: 5.1e-05s (num_starts 15)
+tfg_suffixpath_get_expr_helper.: 6e-05s (num_starts 12)
+populate_locid2expr_map.: 6.4e-05s (num_starts 2)
+tfg::collect_assumes_around_edge.: 6.6e-05s (num_starts 12)
+select_llvmvars_live_at_pc_and_add_to_dst.: 9.2e-05s (num_starts 12)
+break_sse_reg_exprs.: 9.6e-05s (num_starts 95)
+identify_local_variables_in_memmask_expr.: 9.7e-05s (num_starts 231)
+avail_exprs_analysis.meet.: 0.000102s (num_starts 12)
+pred_lhs_rhs_convert_memmask_to_select_for_symbols_and_locals.: 0.000126s (num_starts 231)
+compute_ineq_eqclasses.: 0.000144s (num_starts 12)
+compute_dst_ineq_eqclass.: 0.000151s (num_starts 12)
+populate_suffixpaths.: 0.000155s (num_starts 2)
+removeMostPromising.: 0.000156s (num_starts 13)
+graph_visit_exprs.: 0.000159s (num_starts 2)
+propagate_sprels.: 0.000185s (num_starts 2)
+populate_loc_definedness.: 0.0002s (num_starts 2)
+proof_query_is_trivial.: 0.00022s (num_starts 231)
+populate_branch_affecting_locs.: 0.000225s (num_starts 2)
+aliasing_constraints.get_ismemlabel_preds.: 0.00035s (num_starts 5)
+graph_edge_composition_get_to_state_using_to_state_fn.: 0.00038s (num_starts 42)
+get_sprel_map_pair.: 0.000382s (num_starts 455)
+aliasing_constraints.get_ismemlabel_exprs.: 0.000416s (num_starts 305)
+reconciliate_stack_mem_in_counter_example.: 0.000417s (num_starts 195)
+populate_loc_liveness.: 0.000428s (num_starts 2)
+compute_mem_eqclass.: 0.000454s (num_starts 12)
+xfer_and_meet.: 0.000459s (num_starts 40)
+graph_edge_contains_unknown_function_call.: 0.000498s (num_starts 209)
+decide_hoare_triple.proof.: 0.000522s (num_starts 2)
+get_unrolled_loop_paths_from.: 0.000541s (num_starts 6)
+generate_ismemlabel_constraints_from_expr.: 0.000586s (num_starts 300)
+set_result_and_counter_example.: 0.00075s (num_starts 82)
+expr_model_callee_readable_writeable_regions_in_fcalls_visitor.other.: 0.00077s (num_starts 679)
+compute_ismemlabel_eqclass.: 0.000812s (num_starts 12)
+compute_loc_avail_exprs.: 0.00084s (num_starts 2)
+cg_with_asm_annotation::mark_graph_unstable.: 0.001011s (num_starts 12)
+populate_simplified_to_state.: 0.00103s (num_starts 2)
+graph_with_paths::collect_assumes_around_path.: 0.001034s (num_starts 33)
+expr_label_memlabels_using_memlabel_map_visitor.: 0.001449s (num_starts 2263)
+expr_simplify_using_sprel_and_memlabel_maps.model.: 0.001555s (num_starts 196)
+expr_model_callee_readable_writeable_regions_in_fcalls_visitor.: 0.001631s (num_starts 2263)
+eqspace::smallest_point_cover_houdini_t<eqspace::pcpair, eqspace::corr_graph_node, eqspace::corr_graph_edge, eqspace::predicate>.recompute_preds_for_points.: 0.00173s (num_starts 319)
+aliasing_constraints.convert_to_expr.: 0.001911s (num_starts 123)
+collect_inductive_preds_around_path.: 0.001916s (num_starts 231)
+graph_with_ce::add_CE_at_pc.: 0.001929s (num_starts 164)
+expr_simplify_using_sprel_pair_and_memlabel_maps.sprel.: 0.002017s (num_starts 652)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_expr_is_provable.: 0.002101s (num_starts 123)
+expr_simplify_using_sprel_and_memlabel_maps.: 0.00226s (num_starts 196)
+expr_has_stack_and_nonstack_memlabels_occuring_together.: 0.002287s (num_starts 246)
+compute_well_formedness_conditions_for_edge.: 0.002311s (num_starts 15)
+graph_edge_composition_get_edge_cond.: 0.002438s (num_starts 1319)
+expr_try_converting_unaliased_memslots_to_fresh_vars.: 0.002683s (num_starts 123)
+expr_model_callee_readable_writeable_regions_in_fcalls.: 0.002789s (num_starts 848)
+compute_bv_bool_eqclass.: 0.003094s (num_starts 12)
+graph_ec_apply_trans_funs.: 0.003187s (num_starts 102)
+generate_aliasing_constraints_from_expr.: 0.003239s (num_starts 3511)
+interesting_exprs_at_unroll_factor_apply_trans_funs.: 0.003248s (num_starts 102)
+expr_try_breaking_bvextracts_to_fresh_vars.: 0.003269s (num_starts 123)
+get_unrolled_paths_from.: 0.003575s (num_starts 20)
+add_fresh_counterexample_at_pc_and_propagate.L0%0%1_Lhead%1%0.: 0.003872s (num_starts 6)
+check_asserts_on_outgoing_edges.: 0.003992s (num_starts 4)
+corr_graph::collect_assumes_around_path.: 0.004258s (num_starts 231)
+guarded_lhs_set_includes_nonstack_mem_equality.: 0.004287s (num_starts 123)
+ce_reconcile_sorts.: 0.00502s (num_starts 189)
+construct_linear_combination_exprs.: 0.00529s (num_starts 743)
+compute_expr_eqclasses_at_pc.: 0.005302s (num_starts 12)
+populate_locs_potentially_modified_on_edge.: 0.005443s (num_starts 2)
+graph_with_guessing_add_node.: 0.006s (num_starts 14)
+cg_add_node.: 0.00633s (num_starts 14)
+corr_graph_add_correlation.new_node.: 0.006352s (num_starts 13)
+compute_interesting_exprs_at_pc_helper.: 0.006482s (num_starts 6)
+query:convert_to_z3.: 0.006699s (num_starts 439)
+canonicalize_expr_tree.: 0.00672s (num_starts 1558)
+overlay_masked_array_constant.: 0.007104s (num_starts 660)
+populate_auxilliary_structures_dependent_on_locs.: 0.007168s (num_starts 2)
+smallest_point_cover_arr.recompute_preds_for_points.: 0.007443s (num_starts 328)
+expr_label_memlabels_using_memlabel_map_visitor.simplify.: 0.007677s (num_starts 848)
+expr_replace_input_memvars_with_nonstack_memvar.: 0.007827s (num_starts 246)
+expr_simplify_syntactic().: 0.007884s (num_starts 1558)
+graph_edge_composition_get_simplified_edge_cond.: 0.008266s (num_starts 438)
+get_aliasing_constraints_for_edge.: 0.009133s (num_starts 851)
+addr_within_memlabel_bounds.: 0.009566s (num_starts 801)
+expr_model_stack_as_separate_mem.: 0.009603s (num_starts 246)
+expr_simplify_using_sprel_pair_and_memlabel_maps.model.: 0.009658s (num_starts 652)
+expr_simplify_using_sprel_pair_and_memlabel_maps.: 0.01216s (num_starts 652)
+create_masked_array_constant.: 0.012596s (num_starts 660)
+parse_yices_model.: 0.012893s (num_starts 63)
+evaluate_store.: 0.014696s (num_starts 267)
+counter_example_falsifies_preds.: 0.016384s (num_starts 466)
+bv_const_ref_vector2expr_vector.: 0.016403s (num_starts 743)
+check_equivalence_proof.: 0.016469s (num_starts 1)
+guarded_predicate_set_and.: 0.016575s (num_starts 123)
+query:convert_from_z3.: 0.018383s (num_starts 439)
+check_node_stability_after_CE_addition.: 0.019611s (num_starts 419)
+lhs_set_eliminate_constructs_that_the_solver_cannot_handle.: 0.020095s (num_starts 161)
+gen_pred_from_coeff_row.simplify.: 0.025585s (num_starts 743)
+parse_z3_model.: 0.027759s (num_starts 63)
+edge_composition_apply_trans_funs_on_pred.: 0.028316s (num_starts 231)
+predicate_canonicalized.: 0.029194s (num_starts 1057)
+parse_cvc4_model.: 0.029319s (num_starts 63)
+edge_well_formedness_conditions_falsified_by_counter_example.: 0.029627s (num_starts 453)
+evaluate_memmask.: 0.030143s (num_starts 660)
+corr_graph::get_aliasing_constraints_for_edge.: 0.030182s (num_starts 231)
+prove.eliminate_constructs_that_the_solver_cannot_handle1.: 0.031229s (num_starts 161)
+graph_ec_apply_trans_funs_helper.0.: 0.03156s (num_starts 1230)
+collect_aliasing_constraints_around_path_helper.: 0.031775s (num_starts 1160)
+collect_aliasing_constraints_around_path.: 0.032104s (num_starts 698)
+propagate_CEs_across_new_edge.: 0.033219s (num_starts 15)
+graph_ec_apply_trans_funs_helper.: 0.033798s (num_starts 1230)
+counter_example_evaluate_preds.: 0.034288s (num_starts 1793)
+graph_ec_apply_trans_funs_using_to_state_fn.: 0.034679s (num_starts 1230)
+query:simplify_internal.: 0.036249s (num_starts 439)
+add_corr_graph_edge.: 0.036931s (num_starts 15)
+src_tfg_counter_example_translate_on_edge_composition.delta1.: 0.038657s (num_starts 232)
+src_tfg_counter_example_translate_on_edge_composition.: 0.03969s (num_starts 257)
+query:simplify-z3.: 0.040585s (num_starts 439)
+corr_graph_add_correlation.after_copy_constructor.: 0.043412s (num_starts 15)
+corr_graph_add_correlation.: 0.04687s (num_starts 15)
+corr_graph_prune_and_add_correlations_to_pc.: 0.047871s (num_starts 14)
+get_next_potential_correlations.: 0.049464s (num_starts 4)
+counter_example_translate_using_to_state_mapping_assigning_random_consts_as_needed.: 0.051423s (num_starts 1327)
+dst_tfg_counter_example_translate_on_edge_composition.: 0.052125s (num_starts 408)
+bv_linear_solve.: 0.058962s (num_starts 311)
+query:bv_solve.: 0.059953s (num_starts 311)
+evaluate_expr_assigning_random_consts_as_needed.: 0.060048s (num_starts 7763)
+recomputed_preds_would_be_different_from_current_preds.: 0.060148s (num_starts 3319)
+expr_simplify_using_lhs_set_helper.: 0.071385s (num_starts 425)
+expr_do_simplify_using_lhs_set_and_precond.: 0.071854s (num_starts 425)
+bv_solve.: 0.082526s (num_starts 311)
+gen_pred_from_coeff_row.: 0.084919s (num_starts 743)
+propagate_nodece_across_edge.: 0.086353s (num_starts 209)
+tfg::counter_example_translate_on_edge.: 0.086844s (num_starts 1478)
+compute_preds_for_bv_points.: 0.08881s (num_starts 105)
+counter_example_translate_on_edge_composition.optimized.: 0.089142s (num_starts 689)
+dst_edge_composition_proves_false.: 0.089474s (num_starts 6)
+eqspace::smallest_point_cover_bv_t<eqspace::pcpair, eqspace::corr_graph_node, eqspace::corr_graph_edge, eqspace::predicate>.recompute_preds_for_points.: 0.08993s (num_starts 113)
+counter_example_translate_on_edge_composition.: 0.091277s (num_starts 2099)
+get_next_dst_edge_composition_to_correlate.: 0.091756s (num_starts 5)
+corr_graph::counter_example_translate_on_edge.: 0.09416s (num_starts 408)
+solve_for_bv_points.: 0.096616s (num_starts 311)
+eqspace::smallest_point_cover_bv_t<eqspace::pcpair, eqspace::corr_graph_node, eqspace::corr_graph_edge, eqspace::predicate>.recomputed_preds_would_be_different_from_current_preds.: 0.099172s (num_starts 311)
+add_point_using_CE.: 0.117149s (num_starts 3947)
+add_fresh_counterexample_at_pc_and_propagate.L0%0%1_L0%0%1.: 0.16358s (num_starts 89)
+../../include/graph/smallest_point_cover.h.smallest_point_cover_add_point_using_CE.: 0.295535s (num_starts 3630)
+invariant_state_add_point_using_CE.: 0.300776s (num_starts 330)
+add_point_using_CE_at_pc.: 0.301466s (num_starts 330)
+graph_with_guessing::add_CE_at_pc.: 0.32513s (num_starts 419)
+graph_with_correctness_covers::add_CE_at_pc.: 0.325854s (num_starts 419)
+add_fresh_counterexample_at_pc_and_propagate.Lhead%1%0_Lhead%1%0.: 0.328089s (num_starts 96)
+add_fresh_counterexample_at_pc_and_propagate.: 0.496792s (num_starts 191)
+add_nodece_at_pc_and_propagate_helper.: 0.498446s (num_starts 419)
+query:smt-miss total.: 1.03342s (num_starts 82)
+solver_provable.: 1.04428s (num_starts 123)
+expr_is_provable.: 1.05073s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_aliasing_constraints_generation.: 1.05325s (num_starts 123)
+query:smt.: 1.07603s (num_starts 82)
+solver_satisfiable.: 1.07628s (num_starts 124)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_simplify_and_add_auxiliary_structures.: 1.08931s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_precond_is_false.: 1.10867s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper_miss_after_simplify.: 1.11273s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper_miss.: 1.11295s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper.syntactic_check_failed.: 1.11314s (num_starts 123)
+is_expr_equal_using_lhs_set_and_precond_helper.: 1.11363s (num_starts 123)
+prove.: 1.14648s (num_starts 178)
+prove_using_local_sprel_expr_guesses.: 1.14692s (num_starts 178)
+prove_after_enumerating_local_sprel_expr_guesses.proof_query_not_trivial.: 1.14789s (num_starts 178)
+prove_after_enumerating_local_sprel_expr_guesses.: 1.149s (num_starts 231)
+decide_hoare_triple_helper.: 1.22233s (num_starts 231)
+update_invariant_state_over_edge.: 1.59626s (num_starts 4)
+cg_check_new_cg_edge.: 1.63143s (num_starts 7)
+decide_hoare_triple.ce.: 1.71953s (num_starts 229)
+expandProductCFG.: 1.7731s (num_starts 8)
+bestFirstSearch.: 1.7757s (num_starts 1)
+Time taken for equivalence check.: 1.79338s (num_starts 1)
+
+counters:
+# of edges in Product-CFG.: 3
+# of nodes in Product-CFG.: 3
+# of paths enumerated.: 23
+# of paths expanded.: 7
+# of queries to linear solver.: 311
+# of smt-solver-queries.: 82
+Counter-examples-Generated-at-Lhead%1%0_Lhead%1%0.: 46
+Counter-examples-Total-at-Lhead%1%0_Lhead%1%0.: 49
+num_backtrackings.: 5
+smt-queries-cvc4-sat.: 63
+smt-queries-yices-sat.: 63
+smt-queries-z3-sat.: 63
+
+flags:
+dst-aloc.: 0
+dst-edges.: 6
+dst-nodes.: 6
+src-edges.: 6
+src-nodes.: 6
+timeout-occured.: 0
+
+info:
+eq-state.: find_correlation
+
+Found equivalence proof. Final CG:
+<cg>
+  Edges: L0%0%1_L0%0%1=>Lhead%1%0_Lhead%1%0 (C L0%0%1 => C Lhead%1%0 at mu 1 delta 1, A L0%0%1 => A Lhead%1%0 at mu 1 delta 1)
+         Lhead%1%0_Lhead%1%0=>Lhead%1%0_Lhead%1%0 (C Lhead%1%0 => C Lhead%1%0 at mu 1 delta 1, A Lhead%1%0 => A Lhead%1%0 at mu 1 delta 1)
+         Lhead%1%0_Lhead%1%0=>E0%0%1_E0%0%1 (C Lhead%1%0 => C E0%0%1 at mu 1 delta 1, A Lhead%1%0 => A E0%0%1 at mu 1 delta 1)
+  Nodes: L0%0%1_L0%0%1 (C L0%0%1, A L0%0%1)
+                L0%0%1_L0%0%1 contains 30 counterexamples (for correlating 0 bv exprs)
+         Lhead%1%0_Lhead%1%0 (C Lhead%1%0, A Lhead%1%0)
+                Lhead%1%0_Lhead%1%0 contains 49 counterexamples (for correlating 12 bv exprs)
+                SRCMEM{heap} = DSTMEM{heap}
+                input.src.llvm-%x = input.dst.llvm-%x
+                input.src.llvm-%y = input.dst.llvm-%y
+                input.src.llvm-%z = input.dst.llvm-%z
+                0 = 0
+                (input.src.llvm-%x + 1) = (1 + input.dst.llvm-%x)
+                (0 >=_s 0)
+                (0 <= (-2147483648))
+                (0 <= (-2147483648))
+                (0 >=_s 0)
+                (0 <= input.dst.llvm-%y)
+         E0%0%1_E0%0%1 (C E0%0%1, A E0%0%1)
+                E0%0%1_E0%0%1 contains 0 counterexamples (for correlating 0 bv exprs)
+
+</cg>
+EQUIV equivalence check for function mul. 1.86s, query:smt.: 1.07603s (num_starts 82), decide_hoare_triple.ce.: 1.71953s (num_starts 229), decide_hoare_triple_helper.: 1.22233s (num_starts 231)
+
+expr_simplify_solver: num_starts 1558 time spent: 0:0:0 [0.046366]
+expr_simplify_syntactic: num_starts 1558 time spent: 0:0:0 [0.007273]
+expr_linear_relation_holds_visit: num_starts 17 time spent: 0:0:0 [0.000070]
+expr_is_consts_struct_constant: num_starts 108 time spent: 0:0:0 [0.000032]
+graph_loc_get_value: num_starts 116 time spent: 0:0:0 [0.000169]
+manager_register_object: num_starts 500359 time spent: 0:0:0 [0.171593]
+manager_deregister_object: num_starts 20940 time spent: 0:0:0 [0.018326]
+expr_do_simplify_helper: num_starts 13551 time spent: 0:0:0 [0.078244]
+expr_do_simplify_helper_cache: num_starts 13551 time spent: 0:0:0 [0.004496]
+expr_evaluates_to_constant: num_starts 9608 time spent: 0:0:0 [0.008510]
+evaluate_expr_and_check_bounds: num_starts 13992 time spent: 0:0:0 [0.118450]
+total: num_starts 1 time spent: 0:0:3 [3.008236]
+num_syntactic_match_tests = 0.
+num_execution_tests = 0.
+num_boolean_tests = 0.
+fingerprinting rate: 0.00 per second (total), -nan per second (itable_enumerate_timer), -nan per second (excluding execution/boolean tests).
+
+Time taken for equivalence check.: 1.79338s (num_starts 1)
+Equivalence proof found. The programs are equivalent.
