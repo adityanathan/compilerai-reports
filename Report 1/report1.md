@@ -7,7 +7,7 @@
 
 # Description of the different programs tested
 
-- Program correctnes was tested by running llc on the individual programs and if llc was able to convert the .ll files .s, it was assumed the llvm programs were correct.
+- Program correctnes was tested by running llc on the individual programs and if llc was able to convert the .ll files to .s, it was assumed the llvm programs were correct.
 
 - Question: Does eq32 optimize the input programs before checking for equivalence?
   - If it does, then it's possible in some cases that the code we wanted eq32 to examine for equivalence might have been deleted because of aggressive optimization.
