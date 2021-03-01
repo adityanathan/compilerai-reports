@@ -42,7 +42,7 @@
 - The operation in question here is a shift left by more than the bitwidth.
 - In one of the programs, the operation was put inside a block which never executed. In the other, it was hoisted out of that branch.
 
-    out.log
+    out.log snippet
     ```
     Stack dump:
     0.	Program arguments: /home/adityanathan/superopt-project/usr/local/bin/llvm2tfg --xml-output-format text-color -f mul reg1.ll.bc -o reg1.ll.bc.etfg
@@ -57,7 +57,7 @@
 
 - Assuming this to be related to the undefined operation, I changed the shift to less than the bitwidth and executed eq32 again but strangely the symbolic exeution error occurred again.
 
-    out.log
+    out.log snippet
 
     ```
     <MSG>0:00 : Converting LLVM IR bitcode to Transfer Function Graph (TFG)...</MSG>
