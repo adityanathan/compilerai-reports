@@ -1,6 +1,6 @@
 # Week 1 Report (March 1)
 
-- TLDR: We created multiple small llvm program pairs using examples from the alive and llvm undefined paper and tested eq32 on them to see what eq32 can handle and cannot handle as of now.
+- TLDR: We created multiple small llvm program pairs using examples from the alive and llvm undefined paper and tested eq32 on them to see what eq32 can handle and cannot handle as of now. We found 1 eq32 bug related to undef handling
 - Observations:
   - In many cases, we got symbolic execution error
   - In one case, the programs were not equivalent but eq32 claimed that they were equivalent. On observation of the tfg files, we found that there is a bug in the way eq32 handles undef. The error was thought to be in lib/expr/expr.cpp but it turned out that the the fix is not that easy.
